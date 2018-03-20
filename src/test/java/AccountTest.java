@@ -38,12 +38,12 @@ public class AccountTest {
     }
 
     @Test
-    public void debit() throws MinimumBalanceException, InvalidAccountNumberException, InsufficientBalanceException {
+    public void debit() throws InsufficientBalanceException {
         assertEquals(900,account.debit(124),0);
     }
 
     @Test(expected = InsufficientBalanceException.class)
-    public void insufficentBalanceException() throws MinimumBalanceException, InvalidAccountNumberException, InsufficientBalanceException {
+    public void insufficentBalanceException() throws  InsufficientBalanceException {
         account.debit(1500);
     }
 }
