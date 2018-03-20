@@ -2,11 +2,10 @@ package com.thoughtworks;
 
 public class Account {
     private final String accountNo;
-    private int balance;
+    private double balance;
 
-    public Account(String accountNo, int balance) throws MinimumBalanceException, InvalidAccountNumberException {
+    public Account(String accountNo, double balance) throws MinimumBalanceException, InvalidAccountNumberException {
         if(!this.isValidAccountNo(accountNo)){
-            System.out.println(this.isValidAccountNo(accountNo)+accountNo);
             throw new InvalidAccountNumberException();
         }
         if(balance<1000){
@@ -16,7 +15,7 @@ public class Account {
         this.balance = balance;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -26,5 +25,13 @@ public class Account {
 
     private Boolean isValidAccountNo(String accountNo){
         return accountNo.matches("([0-9]){4}-([0-9]){4}");
+    }
+
+    public double debit(int amount) throws InsufficientBalanceException {
+        if(amount>balance){
+            throw new InsufficientBalanceException();
+        }
+        this.balance -= amount;
+        return this.balance;
     }
 }
