@@ -3,12 +3,13 @@ package com.thoughtworks;
 public class Account {
     private final String accountNo;
     private double balance;
+    private static double minimumBalance = 1000;
 
     public Account(String accountNo, double balance) throws MinimumBalanceException, InvalidAccountNumberException {
         if(!this.isValidAccountNo(accountNo)){
             throw new InvalidAccountNumberException();
         }
-        if(balance<1000){
+        if(balance<minimumBalance){
             throw new MinimumBalanceException();
         }
         this.accountNo = accountNo;
