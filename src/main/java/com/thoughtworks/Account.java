@@ -1,18 +1,15 @@
 package com.thoughtworks;
 
 public class Account {
-    private final String accountNo;
     private double balance;
     private static final double minimumBalance = 1000;
+    private AccountNumber accountNo;
 
-    public Account(String accountNo, double balance) throws MinimumBalanceException, InvalidAccountNumberException {
-        if(!this.isValidAccountNo(accountNo)){
-            throw new InvalidAccountNumberException();
-        }
+    public Account(AccountNumber accountNo, double balance) throws MinimumBalanceException{
+        this.accountNo = accountNo;
         if(balance<minimumBalance){
             throw new MinimumBalanceException();
         }
-        this.accountNo = accountNo;
         this.balance = balance;
     }
 
@@ -20,13 +17,6 @@ public class Account {
         return balance;
     }
 
-    public String getAccountNo() {
-        return this.accountNo;
-    }
-
-    private Boolean isValidAccountNo(String accountNo){
-        return accountNo.matches("([0-9]){4}-([0-9]){4}");
-    }
 
     public double debit(int amount) throws InsufficientBalanceException {
         if(amount>balance){
