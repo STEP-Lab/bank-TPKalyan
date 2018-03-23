@@ -1,16 +1,23 @@
 package com.thoughtworks;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Transactions {
     public Transactions() {
         list = new ArrayList<>();
     }
 
-    protected ArrayList<Transaction> list;
+    private ArrayList<Transaction> list;
 
     public void debit(int amount, String to) {
         list.add(new DebitTransaction(amount,to));
+    }
+
+    public void credit(int amount, String from) {
+        list.add(new CreditTransaction(amount, from));
+    }
+
+    public ArrayList<Transaction> getList() {
+        return list;
     }
 }
