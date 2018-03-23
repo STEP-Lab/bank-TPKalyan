@@ -1,2 +1,5 @@
-rootProject.name = 'bank'
+rootProject.name = 'bank-TPKalyan'
+include 'application'
+findProject(':application')?.name = 'bank'
+include 'library'
 
