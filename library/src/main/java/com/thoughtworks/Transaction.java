@@ -4,11 +4,11 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Transaction {
-    protected final float amount;
+    protected final double amount;
     protected final String to;
     protected Date date;
 
-    public Transaction(float amount, String To, Date date) {
+    public Transaction(double amount, String To, Date date) {
         this.amount = amount;
         to = To;
         this.date = date;
@@ -23,7 +23,7 @@ public class Transaction {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transaction that = (Transaction) o;
-        return Float.compare(that.amount, amount) == 0 &&
+        return Double.compare(that.amount, amount) == 0 &&
                 Objects.equals(to, that.to);
     }
 

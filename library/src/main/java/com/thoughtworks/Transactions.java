@@ -20,4 +20,9 @@ public class Transactions {
     public ArrayList<Transaction> getList() {
         return list;
     }
+
+    public void transfer(String from, String to, double amount) {
+        list.add(new Transfer(from,to,amount));
+    }
 }
+

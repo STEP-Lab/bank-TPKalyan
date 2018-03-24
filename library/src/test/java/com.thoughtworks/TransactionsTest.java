@@ -28,4 +28,9 @@ public class TransactionsTest {
         assertThat(transactions.getList(),hasItem(new CreditTransaction(new Date(),1000,"nelluru peddareddy")));
     }
 
+    @Test
+    public void mustRecordTransferTransaction() {
+        transactions.transfer("Suyog","Raghu",5000);
+        assertThat(transactions.getList(),hasItem(new Transfer(new Date(),"Suyog","Raghu",5000)));
+    }
 }

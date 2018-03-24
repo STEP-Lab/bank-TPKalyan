@@ -1,11 +1,6 @@
 import com.thoughtworks.AccountNumber;
-import com.thoughtworks.InsufficientBalanceException;
 import com.thoughtworks.InvalidAccountNumberException;
-import com.thoughtworks.MinimumBalanceException;
-import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
 
 public class AccountNumberTest {
 
@@ -26,7 +21,7 @@ public class AccountNumberTest {
 
     @Test(expected = InvalidAccountNumberException.class)
     public void checkAccountNumberValdityIfAccountNumberConsistsOfSymbols() throws InvalidAccountNumberException {
-        new AccountNumber("123:-4213");
+        new AccountNumber("123-4213");
     }
 
     @Test(expected = InvalidAccountNumberException.class)
