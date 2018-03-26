@@ -3,8 +3,11 @@ package com.thoughtworks;
 import java.util.Date;
 
 public class CreditTransaction extends Transaction {
-    protected CreditTransaction(Date date,float amount, String From) {
-        super(amount, From, date);
+    private final String from;
+
+    protected CreditTransaction(Date date, float amount, String From) {
+        super(amount, date);
+        from = From;
     }
 
     public CreditTransaction(int amount, String from) {
