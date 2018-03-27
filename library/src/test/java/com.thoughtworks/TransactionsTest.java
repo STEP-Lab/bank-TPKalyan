@@ -29,11 +29,11 @@ public class TransactionsTest {
         assertThat(transactions.getList(),hasItem(new DebitTransaction(new Date(),1000,"nelluru peddareddy")));
     }
 
-    @Ignore
+    @Test
     public void mustCheckCreditAndDebitTransactions() {
         transactions.debit(1000,"nelluru peddareddy");
         transactions.credit(1000,"nelluru peddareddy");
-        assertThat(transactions.getList(),hasItems());
+        assertThat(transactions.getList(),hasItems(new DebitTransaction(new Date(),1000,"nelluru peddareddy"),new CreditTransaction(new Date(),1000,"nelluru peddareddy")));
     }
 
     @Test
